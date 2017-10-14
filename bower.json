@@ -1,0 +1,8 @@
+{
+  "name": "donkeytube",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "magnific-popup": "^1.0.0"
+  }
+}
