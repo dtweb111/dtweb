@@ -4,9 +4,158 @@
 /**
 * Bootstrap overrides.
 */
+.navbar-default .navbar-toggle, .navbar-default .navbar-toggle:active, .navbar-default .navbar-toggle:focue {
+    background: linear-gradient(to bottom, #CC691D 0, #C25F13 100%) !important;
+}
+
+.navbar-default .navbar-toggle:hover {
+    background: linear-gradient(to bottom, #AD4A00 0, #B85509 100%) !important;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
+}
+
+.navbar-default .navbar-toggle.collapsed {
+    border-color: #A4ABB0;
+}
+
+.navbar-default .navbar-toggle.collapsed .icon-bar {
+    background-color: #A4ABB0;
+}
+
+/**
+* Common settings
+*/
+html, body{
+    background-color: #F5F5F5;
+    font-size: 16px;
+    color: #333;
+}
+
+.btn-dt-default{
+    background:linear-gradient(to bottom, #CC691D 0, #C25F13 100%);
+    border: 1px solid #B25415;
+    border-radius: 3px;
+    color: #fff !important;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+
+.btn-dt-default:hover, .btn-dt-default:active{
+    color: #fff !important;
+    background: linear-gradient(to bottom, #AD4A00 0, #B85509 100%);
+}
+
+.btn-dt-default:focus{
+    text-decoration: none;
+    outline: none;
+}
+
+.gap{
+    border-top: 1px solid #e6e6e6;
+    background-color: #FFF;
+    color: #999;
+    font-size: 12px;
+}
+
+.gap .wrapper{
+    padding: 20px 0;
+}
+
+.gap .wrapper div{
+    display: inline-block;
+}
+
+.social{
+    float: left;
+    min-width: 280px;
+    list-style-type: none;
+}
+
+.social li{
+    margin-right: 2px;
+    padding-left: 0px !important;
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+}
+
+.social li a{
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    line-height: 2;
+    border-radius: 50%;
+    text-decoration: none;
+    text-indent: 0;
+    color: #fff;
+}
+
+.social li.fb a{
+    padding-left: 12px;
+    text-align: left;
+    background: #3b5b9a;
+}
+
+.social li i{
+    position: relative;
+    top: 6px;
+    left: 1px;
+    font-size: 23px;
+    vertical-align: middle;
+    padding: 0;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    font-weight: 800;
+    font-style: normal;
+    line-height: 1;
+}
+
+
+.copyright{
+    float: right;
+    color: #AAA;
+    text-align: left;
+}
+
+.copyright a {
+    color: #aaa;
+}
+
+@media screen and (max-width: 480px){
+    .btn-dt-default {
+        display: block;
+        width: 100%;
+    }
+    
+    .social{
+        display: block;
+    }
+    
+    .copyright{
+        display: block;
+        float: left;
+    }
+}
+
+.navbar-dt-brand{
+    margin-left: 0px !important;
+    padding-left: 50px;
+    background: left top no-repeat url('../img/dt.png');
+}
+
+.dt-nav{
+    background: linear-gradient(to bottom, #FA8723 0, #F57614 100%);
+    color: #fff !important;
+}
+
+.dt-nav a{
+    color: #fff !important;
+}
 
 /**
 * Home page
 */
-
 
