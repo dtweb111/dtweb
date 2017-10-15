@@ -33,6 +33,11 @@ html, body{
     color: #333;
 }
 
+img{
+    vertical-align: top;
+    border: 0;
+}
+
 .btn-dt-default{
     background:linear-gradient(to bottom, #CC691D 0, #C25F13 100%);
     border: 1px solid #B25415;
@@ -158,4 +163,220 @@ html, body{
 /**
 * Home page
 */
+.container-dt{
+    margin: 0 auto;
+    margin-bottom: 20px;
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+}
 
+.main-dt{
+    float:left;
+}
+
+.section{
+    width:100%;
+    border: 1px solid #ececec;
+    overflow: hidden;
+}
+
+.section-title{
+    width: 100%;
+    height: 38px;
+    background: left top repeat-x url("../img/bg-slidebar-header.png");
+}
+
+.slidebar {
+    width: 250px;
+    border: 1px solid #ececec;
+    overflow: hidden;
+}
+
+.section-title span, .slidebar-title span{
+    display: inline-block;
+    line-height: 38px;
+    font-size:18px;
+}
+
+.section-title-header, .slidebar-title-header{
+    padding-left: 6px;
+}
+
+.section-title-more, .slidebar-title-more{
+    float: right;
+    margin-right: 6px;
+}
+
+.section-title-more a, .slidebar-title-more a{
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.section-content{
+    width: 100%;
+}
+
+.clearfix{
+    width: 100%;
+    clear: both;
+    margin-top: 4px;
+}
+
+.item-container{
+    margin-top: 10px;
+    height:auto;
+}
+
+.item-card{
+    width: 131px;
+    height: 230px;
+    border: 1px solid #dfdfdf;
+    overflow: hidden;
+    float: left;
+    margin-left: 12px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    position: relative;
+}
+
+.item-card:hover{
+    border: 1px solid #352da3;
+}
+
+.item-card i{
+    width:40px;
+    height:40px;
+    position: absolute;
+    left: calc(50% - 20px);
+    top: calc(50% - 20px);
+    background:url(../img/icon-play.png) no-repeat;
+    display: none;
+}
+
+.item-card:hover i{
+    display: block;
+}
+
+.item-card a{
+    width: 125px;
+    height: 175px;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    padding-top: 3px;
+    margin: 0 auto;
+    color: #4d4d4d;
+    text-decoration: none;
+}
+
+.item-card a img{
+    width: 125px;
+    height: 175px;
+    display: block;
+    overflow: hidden;
+    background: url("../img/bg-home-item-lazyload.gif") no-repeat scroll center center transparent;
+}
+
+.item-title{
+    width: 100%;
+    height: 40px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.item-title a{
+    height: auto;
+    font-size: 12px;
+    text-align: center;
+}
+
+/**
+* Slidebar
+*/
+.slidebar{
+    width: 250px;
+    float:right;
+}
+
+.slidebar-title{
+    width: 100%;
+    background: left top repeat-x url("../img/bg-slidebar-header.png");
+}
+
+@media screen and (min-width: 992px){
+    .container-dt{
+        width: 992px;
+    }
+
+    .main-dt {
+        width: 730px;
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 992px){
+    .container-dt{
+        width: 760px;
+    }
+
+    .main-dt {
+        width: 556px;
+    }
+    
+    .item-card{
+        margin-left: 6px;
+    }
+
+    .slidebar{
+        width: 200px;
+    }
+    
+}
+
+
+@media screen and (min-width: 568px) and (max-width: 768px){
+    .container-dt{
+        width: 550px;
+    }
+
+    .main-dt {
+        width: 100%;
+    }
+    
+    .item-card{
+        margin-left: calc(25% - 100px);
+    }
+
+    .slidebar{
+        display: none;
+    }
+    
+}
+
+
+@media screen and (max-width: 568px){
+    .container-dt{
+        width: 400px;
+    }
+
+    .main-dt {
+        width: 100%;
+    }
+    
+    .item-card{
+        margin-left: calc(33.3% - 120px);
+        width: 180px;
+        height: 320px;
+    }
+    
+    .item-card a, .item-card a img{
+        width: 175px;
+        height: 260px;
+    }
+
+    .slidebar{
+        display: none;
+    }
+    
+}
