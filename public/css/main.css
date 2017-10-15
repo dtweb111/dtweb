@@ -8,5 +8,37 @@
 /**
 * Home page
 */
+body {
+	margin-top: 40px;
+}
+
+.panel{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.imglist{
+    margin-left: 1%;
+    margin-right: 1%;  
+    margin-top: 1%; 
+    margin-bottom: 1%;
+    border: 2px solid;
+    border-radius: 5px;
+    border-style: groove;
+    white-space: nowrap;
+}
+
+.title {
+		width: 90%;
+		margin-left: 5%; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.caption{
+	text-align: center;
+}
+
 
 

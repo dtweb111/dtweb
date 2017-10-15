@@ -1,10 +1,25 @@
 extends ../layout
 
 block content
-  // h1 search_combine results:
-  //p #{resultTopNViews}
-  div(class='title')
-    b #{'All videos'}
+  .container
+    .row
+      .panel.col-xs-12.col-sm-12.col-md-12.col-lg-12
+        .panel.body 
+          for r in resultTopNViews
+            .col-xs-12.col-sm-12.col-md-12.col-lg-12
+              .container.imglist
+                .col-xs-2.col-sm-2.col-md-2.col-lg-2
+                  a(href=r.url,title=r.video_name,target="_blank")
+                    img.imglist(src=r.url,style="height: 170.493px;")
+                .col-xs-10.col-sm-10.col-md-10.col-lg-10
+                  .container
+                    h4 #{r.video_name}
+                    p Run Time: #{r.run_time} mins
+                    p Release Date：#{r.release_date}
+                    p Stars: #{r.actors}
+                    p.word-wrap: break-word Description: #{r.description}
+
+
 
 
 
