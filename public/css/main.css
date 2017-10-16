@@ -65,7 +65,7 @@ img{
 }
 
 .gap .wrapper{
-    padding: 20px 0;
+    padding: 5px 0;
 }
 
 .gap .wrapper div{
@@ -74,7 +74,7 @@ img{
 
 .social{
     float: left;
-    min-width: 280px;
+    min-width: 200px;
     list-style-type: none;
 }
 
@@ -129,7 +129,7 @@ img{
     color: #aaa;
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 586px){
     .btn-dt-default {
         display: block;
         width: 100%;
@@ -287,8 +287,12 @@ img{
 
 .item-title a{
     height: auto;
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
+}
+
+.item-card:hover .item-title a{
+    color: #352da3;
 }
 
 /**
@@ -304,6 +308,47 @@ img{
     background: left top repeat-x url("../img/bg-slidebar-header.png");
 }
 
+.slidebar-main{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.sitem-row {
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+}
+
+.sitem-row:nth-child(even) {
+    background-color: rgba(246, 236, 236, 0.4);
+}
+
+.sitem-row:hover {
+    /*background-color: #a9c98b;*/
+    background-color: #f7d798;
+}
+
+.sitem-row a {
+    display: inline-block;
+    width: 100%;
+    line-height: 40px;
+    overflow: hidden;
+    font-size: 0.8rem;
+    padding: 0 5px;
+    font-size: 14px;
+    color: #4d4d4d;
+    text-decoration: none;
+}
+
+.sitem-row a:hover{
+    color: #352da3;
+}
+
+
+/**
+* Medium screen
+*/
 @media screen and (min-width: 992px){
     .container-dt{
         width: 992px;
@@ -315,6 +360,9 @@ img{
 }
 
 
+/**
+* Medium screen
+*/
 @media screen and (min-width: 768px) and (max-width: 992px){
     .container-dt{
         width: 760px;
@@ -335,6 +383,9 @@ img{
 }
 
 
+/**
+* Small screen
+*/
 @media screen and (min-width: 568px) and (max-width: 768px){
     .container-dt{
         width: 550px;
@@ -355,6 +406,9 @@ img{
 }
 
 
+/**
+* Extra small screen
+*/
 @media screen and (max-width: 568px){
     .container-dt{
         width: 400px;

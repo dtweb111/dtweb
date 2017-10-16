@@ -24,6 +24,9 @@ block content
         span.section-title-more 
           a(href="/search") more>>
       .slidebar-main
+        for s_item in resultTopNReleased
+          .sitem-row
+            a(href=s_item.url target="_blank") !{s_item.video_name}
 
       
         
