@@ -3,7 +3,22 @@ extends ../layout
 block content
   .container-dt
     .main-dt
-      .section
+      .section.new-released
+        .section-title
+          span.section-title-header New Released
+          span.section-title-more 
+            a(href="/search") more>>
+        .clearfix
+        .section-content
+          .item-container
+            for item in resultTopNReleased
+              .item-card
+                a(href=item.url target="_blank")
+                  img(src=item.url)
+                  i
+                .item-title 
+                  a(href=item.url target="_blank") #{item.video_name}
+      .section.top-view
         .section-title
           span.section-title-header Top Views
           span.section-title-more 
@@ -18,6 +33,7 @@ block content
                   i
                 .item-title 
                   a(href=item.url target="_blank") #{item.video_name}
+
     .slidebar
       .slidebar-title
         span.section-title-header New Released
