@@ -15,11 +15,14 @@ var paths = {
         'bower_components/bootstrap/dist/js/bootstrap.js',
         'bower_components/magnific-popup/dist/jquery.magnific-popup.js'
     ],
+    libs: [
+        'bower_components/videojs-youtube/dist/Youtube.min.js'
+    ],
     scripts: [
         'public/js/common.js',
         'public/js/home.js'
     ],
-    images: 'public/img/**/*',
+    images: ['public/img/**/*', 'public/favicon.ico'],
     styles: 'public/css/**/*',
     fonts: 'public/fonts/**/*'
 };
@@ -27,6 +30,9 @@ var paths = {
 // Combine all JS libraries into a single file
 gulp.task('cleanVendor', function () {
     return gulpDel(['dist/js/vendor.js']);
+});
+gulp.task('cleanLib', function () {
+    return gulpDel(['dist/lib']);
 });
 gulp.task('cleanBundle', function () {
     return gulpDel(['dist/js/bundle.js']);
@@ -50,6 +56,11 @@ gulp.task('vendors', ['cleanVendor'], function(){
         .pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('libs', ['cleanLib'], function(){
+    return gulp.src(paths.libs)
+        .pipe(gulp.dest('dist/lib'));
+});
+
 gulp.task('scripts', ['cleanBundle'], function(){
     return gulp.src(paths.scripts)
         .pipe(gulpSourceMaps.init())
@@ -64,15 +75,15 @@ gulp.task('styles', ['cleanCss'], function(){
         .pipe(gulpSourceMaps.init())
         .pipe(gulpAutoPrefixer())
         .pipe(gulpConcat('bundle.css'))
-        .pipe(gulpCleanCss({compatibility: 'ie8'}))
+        .pipe(gulpCleanCss({compatibility: 'ie8', rebase: false}))
         .pipe(gulpSourceMaps.write())
         .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('images', ['cleanImg'], function(){
-    return gulp.src(paths.images)
+    return gulp.src(paths.images, {base: 'public'})
         .pipe(gulpImageMin({optimizationLevel: 5}))
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('fonts', ['cleanFont'], function(){
@@ -83,6 +94,7 @@ gulp.task('fonts', ['cleanFont'], function(){
 // The watch task
 gulp.task('watch', function () {
     gulp.watch(paths.vendors, ['vendors']);
+    gulp.watch(paths.libs, ['libs']);
     gulp.watch(paths.scripts, ['scripts']);
     gulp.watch(paths.styles, ['styles']);
     gulp.watch(paths.images, ['images']);
@@ -90,7 +102,7 @@ gulp.task('watch', function () {
 });
 
 // The build task (called when npm has finished install, `postinstall` in package.json)
-gulp.task('build', ['vendors', 'scripts', 'styles', 'images', 'fonts']);
+gulp.task('build', ['vendors', 'libs', 'scripts', 'styles', 'images', 'fonts']);
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('default', ['build', 'watch']);

@@ -3,6 +3,8 @@
   "dependencies": {
     "jquery": "^3.2.1",
     "bootstrap": "^3.3.7",
-    "magnific-popup": "^1.0.0"
+    "magnific-popup": "^1.0.0",
+    "components-font-awesome": "^4.7.0",
+    "videojs-youtube": "^2.4.1"
   }
 }

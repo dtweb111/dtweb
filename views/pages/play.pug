@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    .container-dt
+        #cnd.hidden
+            link(rel="stylesheet" href="http://vjs.zencdn.net/6.2.8/video-js.css")
+            script(src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js")
+        .play-area
+            //video#dt-video.video-js.vjs-16-9.vjs-big-play-centered.img-thumbnail.my-video-dimensions.vjs-controls-enabled.vjs-has-started.vjs-user-inactive.vjs-paused(
+            video#dt-video.video-js.vjs-16-9.vjs-big-play-centered.img-thumbnail.vjs-controls-enabled.vjs-has-started.vjs-user-inactive.vjs-paused(    
+                controls 
+                preload="auto" 
+                width="560" 
+                height="315" 
+                data-setup='{"techOrder": ["html5", "youtube"]}'
+            )
+                //source(src='https://archive.org/embed/filmcollectief-09-054' type='video/youtube')
+                //source(src='http://techslides.com/demos/sample-videos/small.mp4' type='video/mp4')
+                //source(src="https://www.youtube.com/embed/3tmd-ClpJxA" type='video/youtube')
+                source(src="http://www.youtube.com/watch?v=D36JUfE1oYk" type='video/youtube')
+                //source(src="MY_VIDEO.webm" type='video/webm')
+                p.vjs-no-js
+                    |To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    a(href="http://videojs.com/html5-video-support/" target="_blank") supports HTML5 video
+            script(src="http://vjs.zencdn.net/6.2.8/video.js")
+            script(src="/lib/Youtube.min.js")
