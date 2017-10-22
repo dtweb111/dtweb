@@ -497,7 +497,45 @@ img{
 /**
 * Play page
 */
+.play-area, .play-info, .comment-area{
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+}
 
+.play-info{
+    border-bottom: 1px dashed #ddd;
+}
+
+.p-i-row, .p-c-row {
+    overflow: auto;
+}
+
+.p-i-row{
+    width: 100%;
+}
+
+.p-i-row-label {
+    width: 80px;
+    float: left;
+    color: #a1a4a9;
+    font-weight: 500;
+}
+
+.p-i-title, .p-i-content{
+    display: inline-block;
+    padding: 3px;
+}
+
+.p-i-row-content{
+    width: calc(100% - 80px);
+    float: left;
+}
+
+.p-i-content{
+    display: inline-block;
+    margin-left: 2px;
+}
 
 
 
