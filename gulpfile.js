@@ -20,7 +20,8 @@ var paths = {
     ],
     scripts: [
         'public/js/common.js',
-        'public/js/home.js'
+        'public/js/home.js',
+        'public/js/search.js'
     ],
     images: ['public/img/**/*', 'public/favicon.ico'],
     styles: 'public/css/**/*',

@@ -7,42 +7,42 @@ block content
         .section-title
           span.section-title-header New Released
           span.section-title-more 
-            a(href="/search") more>>
+            a(href="javascript:void(0);" data="date") more>>
         .clearfix
         .section-content
           .item-container
             for item in resultTopNReleased
-              .item-card
-                a(href=item.url target="_blank")
-                  img(src=item.url)
+              .item-card(data=item.video_id)
+                a(href='javascript:void(0)')
+                  img(src=item.image_url)
                   i
                 .item-title 
-                  a(href=item.url target="_blank") #{item.video_name}
+                  a(href='javascript:void(0)') #{item.video_name}
       .section.top-view
         .section-title
           span.section-title-header Top Views
           span.section-title-more 
-            a(href="/search") more>>
+            a(href="javascript:void(0);" data="views") more>>
         .clearfix
         .section-content
           .item-container
             for item in resultTopNViews
-              .item-card
-                a(href=item.url target="_blank")
-                  img(src=item.url)
+              .item-card(data=item.video_id)
+                a(href='javascript:void(0)')
+                  img(src=item.image_url)
                   i
                 .item-title 
-                  a(href=item.url target="_blank") #{item.video_name}
+                  a(href='javascript:void(0)') #{item.video_name}
 
     .slidebar
       .slidebar-title
         span.section-title-header New Released
         span.section-title-more 
-          a(href="/search") more>>
+          a(href="javascript:void(0);" data="date") more>>
       .slidebar-main
         for s_item in resultTopNReleased
-          .sitem-row
-            a(href=s_item.url target="_blank") !{s_item.video_name}
+          .sitem-row(data=s_item.video_id)
+            a(href='javascript:void(0)') !{s_item.video_name}
 
-      
-        
+  .data
+    input(type='hidden' id='page' value='home')            

@@ -6,111 +6,51 @@ block content
       .s-f-row
         .s-f-row-label
           span.s-f-title Category:
-        .s-f-row-content
-          .s-f-item
-            a(href='javascirpt:void(0);' data='0' class='selected') All
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Adventure') Adventure
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Drama') Drama
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Fantasy') Fantasy
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Family') Family
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Documentary') Documentary
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Action') Action
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Crime') Crime
+        .s-f-row-content.s-f-category
+          for f_c in category
+            .s-f-item
+              a(href='javascirpt:void(0);' data=f_c.name) #{f_c.name}
       .s-f-row
         .s-f-row-label
           span.s-f-title Year:
-        .s-f-row-content
-          .s-f-item
-            a(href='javascirpt:void(0);' data='0' class='selected') All
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Adventure') 2017
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Drama') 2016
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Fantasy') 2015
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Family') 2014
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Documentary') 2013
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Action') 2012
-          .s-f-item
-            a(href='javascirpt:void(0);' data='Crime') 2011
+        .s-f-row-content.s-f-year
+          for f_y in year
+            .s-f-item
+              a(href='javascirpt:void(0);' data=f_y) #{f_y}
       .s-f-row
         .s-f-row-label
           span.s-f-title Sort:
-        .s-f-row-content
+        .s-f-row-content.s-f-sort
           .s-f-item
-            a(href='javascirpt:void(0);' data='0' class='selected') Date
+            a(href='javascirpt:void(0);' data='date' class='selected') Date
           .s-f-item
-            a(href='javascirpt:void(0);' data='Adventure') Views
+            a(href='javascirpt:void(0);' data='views') Views
           .s-f-item
-            a(href='javascirpt:void(0);' data='Drama') Rate
+            a(href='javascirpt:void(0);' data='rate') Rate
 
     .s-main
-      .s-m-row
-        .s-m-row-img
-          img(src='https://images-na.ssl-images-amazon.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg')
-        .s-m-row-text
-          .s-m-row-basic
-            .s-m-row-name
-              span Kingsman: The Golden Circle
-            .s-m-row-category
-              span Adventure,Drama,Family
-            .s-m-row-released
-              span 26 Jul 2009
-          .s-m-row-rated
-            i.fa.fa-star &ensp;7.6
-          .s-m-row-views
-            i.fa.fa-eye &ensp;2972
-      .s-m-row
-        .s-m-row-img
-          img(src='https://images-na.ssl-images-amazon.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg')
-        .s-m-row-text
-          .s-m-row-basic
-            .s-m-row-name
-              span Kingsman: The Golden Circle
-            .s-m-row-category
-              span Adventure,Drama,Family
-            .s-m-row-released
-              span 26 Jul 2009
-          .s-m-row-rated
-            i.fa.fa-star &ensp;7.6
-          .s-m-row-views
-            i.fa.fa-eye &ensp;2972
-      .s-m-row
-        .s-m-row-img
-          img(src='https://images-na.ssl-images-amazon.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg')
-        .s-m-row-text
-          .s-m-row-basic
-            .s-m-row-name
-              span Kingsman: The Golden Circle
-            .s-m-row-category
-              span Adventure,Drama,Family
-            .s-m-row-released
-              span 26 Jul 2009
-          .s-m-row-rated
-            i.fa.fa-star &ensp;7.6
-          .s-m-row-views
-            i.fa.fa-eye &ensp;2972
 
     .s-pagination
       .s-p-main
-        ul.pagination
-          li.page-item.disabled
+        ul.pagination.pagination-pc
+
+        ul.pagination.pagination-mb
+          li.page-item.page-mb-previous
             a.page-link(href='javascript:void(0);') Previous
-          li.page-item.active
+          li.page-item.page-mb-current.active
             a.page-link(href='javascript:void(0);') 1
-          li.page-item
+          li.page-item.page-mb-next
             a.page-link(href='javascript:void(0);') Next
         .s-p-go Total:&ensp;
-          span#page_total.page-total 5
-          input#page_number.page-text(type='text' title='page number')
-          button#page_go.btn.btn-primary Go
+          span#page_total.page-total
+          input#page_number.page-text.page-mb-number(type='text' title='page number')
+          button#page_go.btn.btn-primary.page-mb-go Go	
+          
+
+  .data
+    input(type='hidden' id='page' value='search')
+    if searchData.sort
+      input(type='hidden' id='sort' value=searchData.sort)
+    if searchData.keyword
+      input(type='hidden' id='keyword' value=searchData.keyword)
+

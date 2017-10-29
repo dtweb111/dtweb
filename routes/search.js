@@ -9,4 +9,7 @@ router.get('/', searchController.index);
 /* POST search page. */
 router.post('/', searchController.post);
 
+/* API search page. */
+router.post('/api/retrieve', searchController.list);
+
 module.exports = router;

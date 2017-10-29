@@ -9,6 +9,7 @@ var config = require('./config/config');
 var home = require('./routes/home');
 var search = require('./routes/search');
 var play = require('./routes/play');
+var badRequest = require('./routes/badRequest');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/', home);
 app.use('/search', search);
 app.use('/play', play);
+app.use('/bad', badRequest);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
