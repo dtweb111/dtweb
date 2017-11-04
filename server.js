@@ -10,6 +10,7 @@ var home = require('./routes/home');
 var search = require('./routes/search');
 var play = require('./routes/play');
 var badRequest = require('./routes/badRequest');
+var io = require('./src/services/io');
 
 var app = express();
 
@@ -30,6 +31,9 @@ app.use('/search', search);
 app.use('/play', play);
 app.use('/bad', badRequest);
 
+// catch 404 and redirect to `/bad`
+app.use(io.redirect2BadRequest);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -41,11 +45,16 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = app.get('env') === 'development' ? err : {};
+  res.locals.error = config.env === 'dev' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// `uncaughtException` handler to evite node server exit when uncaught exception bubbled to process
+process.on('uncaughtException', (err) => {
+  io.logFile('express', err.message);
 });
 
 module.exports = app;

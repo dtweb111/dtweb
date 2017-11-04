@@ -9,31 +9,44 @@ block content
         .s-f-row-content.s-f-category
           for f_c in category
             .s-f-item
-              a(href='javascirpt:void(0);' data=f_c.name) #{f_c.name}
+              a(href='javascript:void(0);' data=f_c.name) #{f_c.name}
       .s-f-row
         .s-f-row-label
           span.s-f-title Year:
         .s-f-row-content.s-f-year
           for f_y in year
             .s-f-item
-              a(href='javascirpt:void(0);' data=f_y) #{f_y}
+              a(href='javascript:void(0);' data=f_y) #{f_y}
       .s-f-row
         .s-f-row-label
           span.s-f-title Sort:
         .s-f-row-content.s-f-sort
           .s-f-item
-            a(href='javascirpt:void(0);' data='date' class='selected') Date
+            a(href='javascript:void(0);' data='date' class='selected') Date
           .s-f-item
-            a(href='javascirpt:void(0);' data='views') Views
+            a(href='javascript:void(0);' data='views') Views
           .s-f-item
-            a(href='javascirpt:void(0);' data='rate') Rate
+            a(href='javascript:void(0);' data='rate') Rate
 
     .s-main
 
     .s-pagination
       .s-p-main
         ul.pagination.pagination-pc
-
+          li.page-item.page-pc-previous
+            a.page-link(href='javascript:void(0);') Previous
+          li.page-item.page-pc-current
+            a.page-link(href='javascript:void(0);') 1
+          li.page-item.page-pc-current.active
+            a.page-link(href='javascript:void(0);') 2
+          li.page-item.page-pc-current
+            a.page-link(href='javascript:void(0);') 3
+          li.page-item.page-pc-current
+            a.page-link(href='javascript:void(0);') ...
+          li.page-item.page-pc-current
+            a.page-link(href='javascript:void(0);') 500
+          li.page-item.page-pc-next
+            a.page-link(href='javascript:void(0);') Next
         ul.pagination.pagination-mb
           li.page-item.page-mb-previous
             a.page-link(href='javascript:void(0);') Previous
@@ -42,15 +55,11 @@ block content
           li.page-item.page-mb-next
             a.page-link(href='javascript:void(0);') Next
         .s-p-go Total:&ensp;
-          span#page_total.page-total
-          input#page_number.page-text.page-mb-number(type='text' title='page number')
-          button#page_go.btn.btn-primary.page-mb-go Go	
+          span#page_total
+          input#page_number.page-text(type='text' title='page number')
+          button#page_go.btn.btn-primary Go	
           
-
   .data
     input(type='hidden' id='page' value='search')
-    if searchData.sort
-      input(type='hidden' id='sort' value=searchData.sort)
-    if searchData.keyword
-      input(type='hidden' id='keyword' value=searchData.keyword)
-
+    input(type='hidden' id='sort' value=searchData.sort || 'date')
+    input(type='hidden' id='keyword' value=searchData.keyword || '')

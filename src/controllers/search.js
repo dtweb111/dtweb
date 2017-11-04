@@ -1,4 +1,3 @@
-var pagination = require('node-pagination');
 var async = require('async');
 
 var db = require('../services/db');
@@ -92,7 +91,7 @@ searchController.list = function(req, res){
             var sql, params = []
             if (body.keyword) {
                 sql = 'SELECT COUNT(`video_id`) AS `total` FROM `search_all_videos` WHERE `video_name` LIKE ?';
-                params.push('%', body.keyword, '%');
+                params.push('%' + body.keyword + '%');
             }else{
                 if (body.category != 'All' && body.year != 'All'){
                     sql = 'SELECT COUNT(`video_id`) AS `total` FROM `search_combine` WHERE `category` = ? AND release_year = ?'; 
@@ -121,7 +120,7 @@ searchController.list = function(req, res){
             var sql, params = []
             if(body.keyword){
                 sql = 'SELECT `video_id`, `video_name`, `image_url`,`video_url`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos` WHERE `video_name` LIKE ?';
-                params.push('%', body.keyword, '%');
+                params.push('%' + body.keyword + '%');
             }else{
                 if (body.category != 'All' && body.year != 'All'){
                     sql = 'SELECT `video_id`, `video_name`, `image_url`,`video_url`, `categories`, `release_date`, `views`, `rate` FROM `search_combine` WHERE `category` = ? AND release_year = ?'; 

@@ -77,7 +77,7 @@ dt.util = dt.util || {
     },
     'pager': function () {
         function Pager() {
-            var currentPage = 1, totalPage = 1, totalItem = 0, itemCount = 10, itemStart = 0;
+            var currentPage = 1, totalPage = 1, totalItem = 0, itemCount = 10, itemStart = 0, showStep = 5;
             this.setPage = function (page) {
                 currentPage = page;
             };
@@ -98,31 +98,46 @@ dt.util = dt.util || {
             };
             this.isFirstPage = function () {
                 return currentPage == 1;
-            }
+            };
             this.isLastPage = function () {
                 return currentPage == totalPage;
-            }
+            };
             this.setItemCount = function (count) {
                 itemCount = count;
-            }
+            };
             this.getItemCount = function () {
                 return itemCount;
-            }
+            };
             this.setTotalItem = function (itemNumber) {
                 totalItem = parseInt(itemNumber);
                 this.setTotalPage(Math.ceil(totalItem / itemCount));
-            }
+            };
             this.getItemStart = function () {
                 return (currentPage - 1) * itemCount;
-            }
+            };
+            this.setStep = function(step){
+                if (step % 2 === 0) {
+                    step++;
+                }
+                showStep = step;
+            };
+            this.getStep = function(){
+                return showStep;
+            };
+            this.getStepBegin = function(){
+                return currentPage - Math.floor(showStep / 2);
+            };
+            this.getStepEnd = function(){
+                return currentPage + Math.floor(showStep / 2);
+            };
         }
 
         return new Pager();
     },
     'form': {
-        'post': function (url, data) {
+        'post': function (url, data, target) {
             var form = document.createElement('form');
-            form.target = '_blank';
+            form.target = typeof target !== 'undefined' ? target : '_blank';
             form.method = 'POST';
             form.action = url;
             form.style.display = 'none';
@@ -141,3 +156,29 @@ dt.util = dt.util || {
         }
     }
 };
+
+/**
+ * Common initialization
+ */
+// Attach event for button#btn_search
+$(function(){
+    $('#form_submit').submit(function(e){
+        e.preventDefault();
+        var page = $('#page').val();
+        if (page == 'search') {
+            $('#keyword').val($('#txt_search').val());
+            $('#sort').val('date');
+            typeof pager == 'object' && pager.setPage(1);
+            typeof search_searchResources == 'function' && search_searchResources();
+            if (typeof s_reset_filter == 'function' && typeof s_retrieveData == 'function') {
+                s_reset_filter();
+                s_retrieveData();
+            }
+        } else {
+            var data = {}, url = '/search';
+            data.keyword = $('#txt_search').val().trim();
+            data.sort = 'date';
+            dt.util.form.post(url, data);
+        }
+    });
+});

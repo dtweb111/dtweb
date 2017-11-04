@@ -1,0 +1,9 @@
+2017-11-03 22:i:s Cannot read property 'query' of undefined
+2017-11-03 22:i:s Cannot read property 'query' of undefined
+2017-11-03 22:i:s Cannot read property 'query' of undefined
+2017-11-03 22:i:s Cannot read property 'query' of undefined
+2017-11-03 22:i:s Cannot read property 'query' of undefined
+2017-11-03 22:i:s Cannot read property 'query' of undefined
+2017-11-03 23:42:01 ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''%', 'date'' at line 1
+2017-11-03 23:43:46 ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''%', 'date'' at line 1
+2017-11-03 23:46:21 ER_BAD_FIELD_ERROR: Unknown column 'undefined' in 'order clause'

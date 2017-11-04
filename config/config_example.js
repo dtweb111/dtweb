@@ -1,3 +1,5 @@
+var path = require('path');
+
 var config = {};
 
 config.db = {
@@ -10,6 +12,10 @@ config.db = {
 
 config.www = {
     'port': 'example'
+};
+
+config.log = {
+    'express': path.join(__dirname, 'example')
 };
 
 config.env = 'dev';

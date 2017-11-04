@@ -4,3 +4,6 @@
 
 /config/config.js
 /nodemon.json
+
+/views/pages/search.bk.pug
+/views/pages/play-bk.pug
