@@ -129,6 +129,23 @@ img{
     color: #aaa;
 }
 
+.navbar-dt-brand{
+    margin-left: 0px !important;
+}
+
+.dt-nav{
+    background: linear-gradient(to bottom, #FA8723 0, #F57614 100%);
+    color: #fff !important;
+}
+
+.dt-nav a{
+    color: #fff !important;
+}
+
+#form_submit button{
+    margin-left: 2px;
+}
+
 @media screen and (max-width: 568px){
     .btn-dt-default {
         display: block;
@@ -143,21 +160,6 @@ img{
         display: block;
         float: left;
     }
-}
-
-.navbar-dt-brand{
-    margin-left: 0px !important;
-    padding-left: 50px;
-    background: left top no-repeat url('../img/dt3.png');
-}
-
-.dt-nav{
-    background: linear-gradient(to bottom, #FA8723 0, #F57614 100%);
-    color: #fff !important;
-}
-
-.dt-nav a{
-    color: #fff !important;
 }
 
 /* accessory area */
