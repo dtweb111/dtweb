@@ -73,7 +73,8 @@ function s_retrieveData(){
         // construct page content
         var mainHtml = [];
         if (data.rowCount.total > 0) {
-            for(var row of data.rows){
+            for(var i=0; i < data.rows.length; i++){
+                var row = data.rows[i];
                 console.log(row);
                 mainHtml.push('<div class="s-m-row" data="', row.video_id, '"><div class="s-m-row-img">');
                 mainHtml.push('<img src="', row.image_url, '">');

@@ -8,7 +8,10 @@ var gulpAutoPrefixer = require('gulp-autoprefixer');
 var gulpCleanCss = require('gulp-clean-css');
 var gulpImageMin = require('gulp-imagemin');
 
-var production = process.env.NODE_ENV === 'production';
+var config = require('./config/config');
+
+//var production = process.env.NODE_ENV === 'production';
+var production = config.env === 'prod';
 var paths = {
     vendors: [
         'bower_components/jquery/dist/jquery.js',
@@ -30,13 +33,13 @@ var paths = {
 
 // Combine all JS libraries into a single file
 gulp.task('cleanVendor', function () {
-    return gulpDel(['dist/js/vendor.js']);
+    return gulpDel(['dist/js/vendor.js', 'dist/js/vendor.js.map']);
 });
 gulp.task('cleanLib', function () {
     return gulpDel(['dist/lib']);
 });
 gulp.task('cleanBundle', function () {
-    return gulpDel(['dist/js/bundle.js']);
+    return gulpDel(['dist/js/bundle.js', 'dist/js/bundle.js.map']);
 });
 gulp.task('cleanCss', function () {
     return gulpDel(['dist/css']);
@@ -50,10 +53,10 @@ gulp.task('cleanFont', function () {
 
 gulp.task('vendors', ['cleanVendor'], function(){
     return gulp.src(paths.vendors)
-        .pipe(gulpSourceMaps.init())
+        .pipe(gulpIf(!production, gulpSourceMaps.init()))
         .pipe(gulpConcat('vendor.js'))
-        .pipe(gulpIf(production, gulpUglify()))
-        .pipe(gulpSourceMaps.write())
+        .pipe(gulpIf(production, gulpUglify({ie8:true})))
+        .pipe(gulpIf(!production, gulpSourceMaps.write('.')))
         .pipe(gulp.dest('dist/js'));
 });
 
@@ -64,10 +67,10 @@ gulp.task('libs', ['cleanLib'], function(){
 
 gulp.task('scripts', ['cleanBundle'], function(){
     return gulp.src(paths.scripts)
-        .pipe(gulpSourceMaps.init())
+        .pipe(gulpIf(!production, gulpSourceMaps.init()))
         .pipe(gulpConcat('bundle.js'))
-        .pipe(gulpIf(production, gulpUglify()))
-        .pipe(gulpSourceMaps.write())
+        .pipe(gulpIf(production, gulpUglify({ie8:true})))
+        .pipe(gulpIf(!production, gulpSourceMaps.write('.')))
         .pipe(gulp.dest('dist/js'));
 });
 
