@@ -5,8 +5,8 @@ block content
         #cnd.hidden
             link(rel="stylesheet" href="http://vjs.zencdn.net/6.2.8/video-js.css")
             script(src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js")
+            script(src="http://vjs.zencdn.net/6.2.8/video.js")
         .play-area
-            //video#dt-video.video-js.vjs-16-9.vjs-big-play-centered.img-thumbnail.my-video-dimensions.vjs-controls-enabled.vjs-has-started.vjs-user-inactive.vjs-paused(
             video#dt-video.video-js.vjs-16-9.vjs-big-play-centered.img-thumbnail.vjs-controls-enabled.vjs-has-started.vjs-user-inactive.vjs-paused(    
                 controls 
                 preload="auto" 
@@ -14,14 +14,11 @@ block content
                 height="315" 
                 data-setup='{"techOrder": ["html5", "youtube"]}'
             )
-                //source(src='http://techslides.com/demos/sample-videos/small.mp4' type='video/mp4')
-                //source(src="https://www.youtube.com/embed/3tmd-ClpJxA" type='video/youtube')
-                source(src="http://www.youtube.com/watch?v=D36JUfE1oYk" type='video/youtube')
+                source(src=video_url type='video/youtube')
                 //source(src="MY_VIDEO.webm" type='video/webm')
                 p.vjs-no-js
                     |To view this video please enable JavaScript, and consider upgrading to a web browser that
                     a(href="http://videojs.com/html5-video-support/" target="_blank") supports HTML5 video
-            script(src="http://vjs.zencdn.net/6.2.8/video.js")
             script(src="/lib/Youtube.min.js")
 
         .play-info
@@ -29,46 +26,45 @@ block content
                 .p-i-row-label
                     span.p-i-title Name:
                 .p-i-row-content
-                    span.p-i-content Planet of the Dead
+                    span.p-i-content #{video_name}
             .p-i-row
                 .p-i-row-label
                     span.p-i-title Category:
                 .p-i-row-content
-                    span.p-i-content Adventure,Drama,Family
+                    span.p-i-content #{categories}
             .p-i-row
                 .p-i-row-label
                     span.p-i-title Directors:
                 .p-i-row-content
-                    span.p-i-content James Strong
+                    span.p-i-content #{directors}
             .p-i-row
                 .p-i-row-label
                     span.p-i-title Actors:
                 .p-i-row-content
-                    span.p-i-content David Tennant,Michelle Ryan,Lee Evans
-            .p-i-row
-                .p-i-row-label
-                    span.p-i-title Directors:
-                .p-i-row-content
-                    span.p-i-content James Strong
+                    span.p-i-content #{actors}
             .p-i-row
                 .p-i-row-label
                     span.p-i-title Released:
                 .p-i-row-content
-                    span.p-i-content 26 Jul 2009
+                    span.p-i-content #{release_date}
             .p-i-row
                 .p-i-row-label
                     span.p-i-title Views:
                 .p-i-row-content
-                    span.p-i-content 2972
+                    span.p-i-content #{views}
             .p-i-row
                 .p-i-row-label
                     span.p-i-title Rate:
                 .p-i-row-content
-                    span.p-i-content 7.6
+                    span.p-i-content #{rate}
             .p-i-row
                 .p-i-row-label
                     span.p-i-title Description:
                 .p-i-row-content
-                    span.p-i-content
-                        |A meeting in a London bus with jewel thief Lady Christina takes a turn for the worst for the Doctor when the bus takes a detour to a desert-like planet, where the deadly Swarm awaits.
+                    span.p-i-content #{description}
+            .p-i-row
+                .p-i-row-label
+                    span.p-i-title Storyline:
+                .p-i-row-content
+                    span.p-i-content #{storyline}
         .comment-area

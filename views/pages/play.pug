@@ -3,23 +3,9 @@ extends ../layout
 block content
     .container-dt
         #cnd.hidden
-            link(rel="stylesheet" href="http://vjs.zencdn.net/6.2.8/video-js.css")
-            script(src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js")
-            script(src="http://vjs.zencdn.net/6.2.8/video.js")
         .play-area
-            video#dt-video.video-js.vjs-16-9.vjs-big-play-centered.img-thumbnail.vjs-controls-enabled.vjs-has-started.vjs-user-inactive.vjs-paused(    
-                controls 
-                preload="auto" 
-                width="560" 
-                height="315" 
-                data-setup='{"techOrder": ["html5", "youtube"]}'
-            )
-                source(src=video_url type='video/youtube')
-                //source(src="MY_VIDEO.webm" type='video/webm')
-                p.vjs-no-js
-                    |To view this video please enable JavaScript, and consider upgrading to a web browser that
-                    a(href="http://videojs.com/html5-video-support/" target="_blank") supports HTML5 video
-            script(src="/lib/Youtube.min.js")
+            .player-wrapper.player-16-9
+                iframe(src=video_url frameborder="0" gesture="media" allowfullscreen)
 
         .play-info
             .p-i-row

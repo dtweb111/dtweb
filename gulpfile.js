@@ -76,11 +76,11 @@ gulp.task('scripts', ['cleanBundle'], function(){
 
 gulp.task('styles', ['cleanCss'], function(){
     return gulp.src(paths.styles)
-        .pipe(gulpSourceMaps.init())
+        .pipe(gulpIf(!production, gulpSourceMaps.init()))
         .pipe(gulpAutoPrefixer())
         .pipe(gulpConcat('bundle.css'))
         .pipe(gulpCleanCss({compatibility: 'ie8', rebase: false}))
-        .pipe(gulpSourceMaps.write())
+        .pipe(gulpIf(!production, gulpSourceMaps.write('.')))
         .pipe(gulp.dest('dist/css'));
 });
 

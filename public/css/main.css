@@ -547,6 +547,32 @@ img{
     padding: 10px;
     font-size: 14px;
 }
+/* player ratio */
+.player-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 0;
+    display: block;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: #000;
+
+}
+.player-wrapper.player-16-9 {
+    padding-top: 56.25%;
+}
+
+.player-wrapper iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
 
 .play-info{
     border-bottom: 1px dashed #ddd;
@@ -699,7 +725,11 @@ img{
     .s-p-go{
         display: none;
     }
-    
+
+    /* search button */
+    #form_submit button{
+        margin-left: 0;
+    }
 }
 
 
@@ -756,5 +786,10 @@ img{
     /* pagination */
     .pagination-pc{
         display: none;
+    }
+
+    /* search button */
+    #form_submit button{
+        margin-left: 0;
     }
 }
