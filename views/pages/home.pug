@@ -36,11 +36,11 @@ block content
 
     .slidebar
       .slidebar-title
-        span.section-title-header New Released
+        span.section-title-header Top Views
         span.section-title-more 
-          a(href="javascript:void(0);" data="date") more>>
+          a(href="javascript:void(0);" data="views") more>>
       .slidebar-main
-        for s_item in resultTopNReleased
+        for s_item in resultTopNViews
           .sitem-row(data=s_item.video_id)
             a(href='javascript:void(0)') !{s_item.video_name}
 

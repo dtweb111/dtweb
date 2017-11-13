@@ -39,6 +39,10 @@ img{
     border: 0;
 }
 
+.hidden{
+    display: none;
+}
+
 .btn-dt-default{
     background:linear-gradient(to bottom, #CC691D 0, #C25F13 100%);
     border: 1px solid #B25415;
@@ -144,6 +148,15 @@ img{
 
 #form_submit button{
     margin-left: 2px;
+}
+
+/* facebook over-writings */
+@media screen and (min-width: 768px){
+    a#fb_like{
+        padding-top:10px;
+        padding-bottom:10px;
+        margin-top:2px;    
+    }
 }
 
 @media screen and (max-width: 568px){
@@ -652,7 +665,7 @@ img{
         width: 730px;
     }
 
-    .new-released {
+    .top-view {
         display: none;
     }
 
@@ -683,7 +696,7 @@ img{
         width: 200px;
     }
     
-    .new-released {
+    .top-view {
         display: none;
     }
     
@@ -714,7 +727,7 @@ img{
         display: none;
     }
     
-    .new-released {
+    .top-view {
         display: block;
     }
     
@@ -761,7 +774,7 @@ img{
         display: none;
     }
     
-    .new-released {
+    .top-view {
         display: block;
     }
 

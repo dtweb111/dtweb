@@ -1,3 +1,14 @@
+.hidden.external-plugins
+    #fb-root
+    script. 
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));    
+
 nav.navbar.navbar-default.dt-nav
     div.container-fluid
         div.navbar-header
@@ -13,9 +24,11 @@ nav.navbar.navbar-default.dt-nav
                 div.form-group
                     input#txt_search.form-control(type="text" placeholder="Search")
                 button.btn.btn-dt-default(type="submit") Submit              
-        //
+        
             ul.navbar-nav.nav.navbar-right
                 li.nav-item
-                    a.navbar-link(href="#") fs-like
+                    a.navbar-link#fb_like(href="#")
+                        .fb-like(data-href="https://www.donkeytube.co" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="false")
+            //-                    
                 li.nav-item
                     a.navbar-link(href="#") login  
