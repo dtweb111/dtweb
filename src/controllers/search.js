@@ -32,11 +32,9 @@ searchController.index = function(req, res){
     }, function(err, results){
         console.log('Results: ', results);
         if (err) {
-            res.redirect('/bad');
-            res.end();
-        }else{
-            res.render('search', results);
+            return res.redirect('/bad');
         }
+        res.render('search', results);
     });
 };
 
@@ -70,11 +68,9 @@ searchController.post = function(req, res){
         console.log('Results: ', results);
         if (err) {
             console.log('Error: ', err);
-            res.redirect('/bad');
-            res.end();
-        }else{
-            res.render('search', results);
+            return res.redirect('/bad');
         }
+        res.render('search', results);
     });
 };
 
