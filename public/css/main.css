@@ -30,8 +30,12 @@
 */
 html, body{
     background-color: #F5F5F5;
-    font-size: 16px;
+    font-size: 14px;
     color: #333;
+}
+
+ul {
+    padding:0;
 }
 
 img{
@@ -119,6 +123,29 @@ img{
 }
 .social li.tw a:hover{
     background-color: #42a1e6;
+}
+.social li.dmca a{
+    background-image: url('../img/icon-dmca.png');
+    background-color: #3d424d;
+}
+.social li.dmca a:hover{
+    background-color: #282c35;
+}
+.social li.privacy a{
+    background-image: url('../img/icon-privacy.svg');
+    background-color: #efdaa1;
+    background-size: 36px 36px;
+}
+.social li.privacy a:hover{
+    background-color: #ebca70;
+}
+.social li.terms a{
+    background: url('../img/icon-terms.svg') center no-repeat;
+    background-color: #eba073d1;
+    background-size: 30px 30px;
+}
+.social li.terms a:hover{
+    background-color: #e97f3fd1;
 }
 
 
@@ -541,14 +568,6 @@ img{
 #page_go{
     font-size: 13px;
 }
-/*
-.page-item.page-pc-dot a{
-    cursor:not-allowed;
-}
-.page-item.page-pc-dot a:hover, .page-item.page-pc-dot a:active{
-    background-color: #fff;
-}
-*/
 
 
 /**
@@ -647,6 +666,35 @@ img{
 .mail{
     color: rgb(55, 119, 3);
     font-style: italic;
+}
+
+
+/**
+* Associate page
+*/
+.associate-area{
+    width: 100%;
+    padding: 10px;
+}
+
+.associate-title{
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.associate-text{
+    
+}
+
+.associate-text span{
+    display: inline-block;
+    line-height: 40px;
+}
+
+.associate-text span a{
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
