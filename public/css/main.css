@@ -148,6 +148,10 @@ img{
     background-color: #e97f3fd1;
 }
 
+.social .sconline{
+    display: none !important;
+}
+
 
 .copyright{
     float: right;
@@ -751,6 +755,11 @@ img{
         display: none;
     }
     
+    /* footer */
+    .sconline{
+        margin-top: 5px;
+    }
+    
 }
 
 
@@ -789,6 +798,11 @@ img{
     /* search button */
     #form_submit button{
         margin-left: 0;
+    }
+
+    /* footer */
+    .social{
+        width: 100%;
     }
 }
 
@@ -851,5 +865,10 @@ img{
     /* search button */
     #form_submit button{
         margin-left: 0;
+    }
+
+    /* footer */
+    .social{
+        width: 100%;
     }
 }
