@@ -1,4 +1,5 @@
 var db = require('../services/db');
+var utils = require('../services/utils');
 
 var playController = {};
 
@@ -17,6 +18,7 @@ playController.post = function(req, res, next){
             return res.redirect('/bad');
         }
         result = data[0];
+        result.number2kview = utils.number2kview;
         res.render('play', result);
     });
 };

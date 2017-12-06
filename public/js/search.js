@@ -85,6 +85,8 @@ function s_retrieveData(){
                 mainHtml.push('<span>', row.categories, '</span>');
                 mainHtml.push('</div><div class="s-m-row-released">');
                 mainHtml.push('<span>', row.release_date, '</span>');
+                mainHtml.push('</div><div class="s-m-row-definition">');
+                mainHtml.push('<span>', row.definition, '</span>');
                 mainHtml.push('</div></div><div class="s-m-row-rated">');
                 mainHtml.push('<i class="fa fa-star">&ensp;', row.rate, '</i>');
                 mainHtml.push('</div><div class="s-m-row-views">');

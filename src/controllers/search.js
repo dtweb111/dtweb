@@ -115,23 +115,23 @@ searchController.list = function(req, res){
         'rows': function(callback){
             var sql, params = []
             if(body.keyword){
-                sql = 'SELECT `video_id`, `video_name`, `image_url`,`video_url`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos` WHERE `video_name` LIKE ?';
+                sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos` WHERE `video_name` LIKE ?';
                 params.push('%' + body.keyword + '%');
             }else{
                 if (body.category != 'All' && body.year != 'All'){
-                    sql = 'SELECT `video_id`, `video_name`, `image_url`,`video_url`, `categories`, `release_date`, `views`, `rate` FROM `search_combine` WHERE `category` = ? AND release_year = ?'; 
+                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate` FROM `search_combine` WHERE `category` = ? AND release_year = ?'; 
                     params.push(body.category, body.year);
                 }else if(body.category != 'All'){
-                    sql = 'SELECT `video_id`, `video_name`, `image_url`,`video_url`, `categories`, `release_date`, `views`, `rate` FROM `search_combine` WHERE category = ?';
+                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate` FROM `search_combine` WHERE category = ?';
                     params.push(body.category);
                 }else if(body.year != 'All'){
-                    sql = 'SELECT `video_id`, `video_name`, `image_url`,`video_url`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos` WHERE release_year = ?';
+                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos` WHERE release_year = ?';
                     params.push(body.year);
                 }else{
-                    sql = 'SELECT `video_id`, `video_name`, `image_url`,`video_url`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos`';
+                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos`';
                 }
             }
-            sql = sql + ' ORDER BY ?? DESC LIMIT ?, ?';
+            sql = sql + ' ORDER BY `source`, ?? DESC LIMIT ?, ?';
             params.push(body.sort, parseInt(body.offset), parseInt(body.limit));
 
             console.log('Sql: ', sql);

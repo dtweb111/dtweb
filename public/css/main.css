@@ -368,6 +368,21 @@ img{
     color: #352da3;
 }
 
+.item-definition {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #18181888;
+    display: inline-block;
+    color: #fff;
+    font-family: pfdm;
+    font-size: 13px;
+    padding: 3px 5px;
+}
+.item-card:hover .item-definition{
+    background: #f57614dd;
+}
+
 /**
 * Slidebar
 */
@@ -523,8 +538,8 @@ img{
     float: left;
 }
 
-.s-m-row-name, .s-m-row-category, .s-m-row-released{
-    margin: 15px 0;
+.s-m-row-name, .s-m-row-category, .s-m-row-released, .s-m-row-definition{
+    margin: 9px 0;
 }
 
 .s-m-row-name{
