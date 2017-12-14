@@ -30,7 +30,7 @@ searchController.index = function(req, res){
             callback(null, body);
         }
     }, function(err, results){
-        console.log('Results: ', results);
+        //console.log('Results: ', results);
         if (err) {
             return res.redirect('/bad');
         }
@@ -40,7 +40,7 @@ searchController.index = function(req, res){
 
 searchController.post = function(req, res){
     var body = req.body;
-    console.log('Post: ', body);
+    //console.log('Post: ', body);
     async.parallel({
         year: function(callback){
             var years = ['All'], currentYear = parseInt((new Date()).getFullYear());
@@ -65,7 +65,7 @@ searchController.post = function(req, res){
             callback(null, body);
         }
     }, function(err, results){
-        console.log('Results: ', results);
+        //console.log('Results: ', results);
         if (err) {
             console.log('Error: ', err);
             return res.redirect('/bad');
@@ -76,11 +76,10 @@ searchController.post = function(req, res){
 
 searchController.list = function(req, res){
     var body = req.body;
-    console.log('Body: ', body);
+    //console.log('Body: ', body);
     if (!body.category || !body.year || !body.sort || !body.offset || !body.limit) {
-        console.log('Post params error!');
+        //console.log('Post params error!');
         res.json({"error":"Search parameters are invalid"});
-        console.log('after json()...');
     }
     async.parallel({
         'rowCount': function(callback){
@@ -102,12 +101,12 @@ searchController.list = function(req, res){
                     sql = 'SELECT COUNT(`video_id`) AS `total` FROM `search_all_videos`';
                 }
             }
-            console.log('Sql: ', sql);
+            //console.log('Sql: ', sql);
             db.exec(sql, params, function(err, data){
                 if (err || data.length < 1) {
                     callback(err);
                 }else{
-                    console.log('rowCount:', data);
+                    //console.log('rowCount:', data);
                     callback(null, data[0]);
                 }
             });
@@ -115,38 +114,38 @@ searchController.list = function(req, res){
         'rows': function(callback){
             var sql, params = []
             if(body.keyword){
-                sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos` WHERE `video_name` LIKE ?';
+                sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate`, `run_time` FROM `search_all_videos` WHERE `video_name` LIKE ?';
                 params.push('%' + body.keyword + '%');
             }else{
                 if (body.category != 'All' && body.year != 'All'){
-                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate` FROM `search_combine` WHERE `category` = ? AND release_year = ?'; 
+                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate`, `run_time` FROM `search_combine` WHERE `category` = ? AND release_year = ?'; 
                     params.push(body.category, body.year);
                 }else if(body.category != 'All'){
-                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate` FROM `search_combine` WHERE category = ?';
+                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate`, `run_time` FROM `search_combine` WHERE category = ?';
                     params.push(body.category);
                 }else if(body.year != 'All'){
-                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos` WHERE release_year = ?';
+                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate`, `run_time` FROM `search_all_videos` WHERE release_year = ?';
                     params.push(body.year);
                 }else{
-                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos`';
+                    sql = 'SELECT `video_id`, `video_name`, `image_url`, `video_url`, `definition`, `categories`, `release_date`, `views`, `rate`, `run_time` FROM `search_all_videos`';
                 }
             }
             sql = sql + ' ORDER BY `source`, ?? DESC LIMIT ?, ?';
             params.push(body.sort, parseInt(body.offset), parseInt(body.limit));
 
-            console.log('Sql: ', sql);
-            console.log('params: ', params);
+            //console.log('Sql: ', sql);
+            //console.log('params: ', params);
             db.exec(sql, params, function(err, data){
                 if (err || data.length < 1) {
                     callback(err);
                 }else{
-                    console.log('Rows:', data);
+                    //console.log('Rows:', data);
                     callback(null, data);
                 }
             });
         }
     }, function(err, results){
-        console.log('Results: ', results);
+        //console.log('Results: ', results);
         if (err) {
             res.json({"error":err});
         }else{

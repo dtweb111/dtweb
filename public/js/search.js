@@ -64,18 +64,19 @@ function s_retrieveData(){
     };
     $('#keyword').length > 0 && (data.keyword = $('#keyword').val());
 
-    console.log('Data: ', data);
+    //console.log('Data: ', data);
 
     dt.promiseq.abort();
     dt.promiseq = dt.util.http.post(url, data);
     dt.promiseq.done(function(data, status, xhr){
-        console.log('Data: ', data);
+        //console.log('Data: ', data);
         // construct page content
         var mainHtml = [];
         if (data.rowCount.total > 0) {
             for(var i=0; i < data.rows.length; i++){
                 var row = data.rows[i];
-                console.log(row);
+                var runtime = row.run_time ? row.run_time : 'N.A.';
+                //console.log(row);
                 mainHtml.push('<div class="s-m-row" data="', row.video_id, '"><div class="s-m-row-img">');
                 mainHtml.push('<img src="', row.image_url, '">');
                 mainHtml.push('</div>');
@@ -83,14 +84,18 @@ function s_retrieveData(){
                 mainHtml.push('<span>', row.video_name, '</span>');
                 mainHtml.push('</div><div class="s-m-row-category">');
                 mainHtml.push('<span>', row.categories, '</span>');
-                mainHtml.push('</div><div class="s-m-row-released">');
+                mainHtml.push('</div><div class="s-m-row-basic-info">');
                 mainHtml.push('<span>', row.release_date, '</span>');
-                mainHtml.push('</div><div class="s-m-row-definition">');
+                mainHtml.push('</div><div class="s-m-row-basic-info">');
                 mainHtml.push('<span>', row.definition, '</span>');
+                mainHtml.push('</div><div class="s-m-row-basic-runtime">');
+                mainHtml.push('<span>', runtime, '&ensp;min</span>');
                 mainHtml.push('</div></div><div class="s-m-row-rated">');
                 mainHtml.push('<i class="fa fa-star">&ensp;', row.rate, '</i>');
                 mainHtml.push('</div><div class="s-m-row-views">');
                 mainHtml.push('<i class="fa fa-eye">&ensp;', dt.util.format.number2kview(row.views), '</i>');
+                mainHtml.push('</div><div class="s-m-row-runtime">');
+                mainHtml.push('<i class="fa fa-clock-o">&ensp;', runtime, '&ensp;min</i>');
                 mainHtml.push('</div></div></div>');
             }
         } else {
@@ -156,7 +161,7 @@ function s_constructPagination4Pc(){
     for(var s = pageStepBegin + 1; s <= pageStepEnd; s++){
         paginationPcHtml.push('<li class="page-item page-pc-num" data="', s, '"><a class="page-link" href="javascript:void(0);">', s, '</a></li>');    
     }
-    console.log('Currentpage: ', currentPage, 'pageStepBegin: ', pageStepBegin, 'pageStepEnd: ', pageStepEnd, 'totalPage: ', totalPage);
+    //console.log('Currentpage: ', currentPage, 'pageStepBegin: ', pageStepBegin, 'pageStepEnd: ', pageStepEnd, 'totalPage: ', totalPage);
     if(pageStepEnd < totalPage - 1){
         var dotNext = +currentPage + +pageStepLength;
         if (dotNext >= totalPage) {
@@ -213,7 +218,7 @@ function s_attachEvent4Filter(){
 
 function s_attachEvent4Play(){
     $('.s-m-row').click(function(e){
-        console.log('id: ', $(this).attr('data'));
+        //console.log('id: ', $(this).attr('data'));
         dt.util.form.post('/play', {'id':$(this).attr('data')});
 
     });

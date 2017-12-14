@@ -534,11 +534,11 @@ img{
 }
 
 .s-m-row-basic{
-    width: calc(100% - 160px);
+    width: calc(100% - 240px);
     float: left;
 }
 
-.s-m-row-name, .s-m-row-category, .s-m-row-released, .s-m-row-definition{
+.s-m-row-name, .s-m-row-category, .s-m-row-basic-info, .s-m-row-basic-runtime{
     margin: 9px 0;
 }
 
@@ -547,13 +547,21 @@ img{
     overflow: hidden;
 }
 
-.s-m-row-views, .s-m-row-rated{
+.s-m-row-category{
+    overflow: hidden;
+}
+
+.s-m-row-basic-runtime{
+    display: none;
+}
+
+.s-m-row-runtime, .s-m-row-views, .s-m-row-rated{
     float: right;
     margin: 50px 0;
 }
 
-.s-m-row-views {
-    width:100px;
+.s-m-row-views, .s-m-row-runtime {
+    width:90px;
     font-size: 14px;
 }
 
@@ -868,8 +876,16 @@ img{
         width: 100%;
     }
 
-    .s-m-row-views, .s-m-row-rated{
+    .s-m-row-runtime, .s-m-row-views, .s-m-row-rated{
         display: none;
+    }
+    
+    .s-m-row-basic-runtime{
+        display: block;
+    }
+    
+    .s-m-row-name, .s-m-row-category, .s-m-row-basic-info, .s-m-row-basic-runtime{
+        margin: 5px 0;
     }
     
     /* pagination */
