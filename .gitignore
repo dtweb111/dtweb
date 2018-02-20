@@ -9,3 +9,5 @@
 /views/pages/play-bk.pug
 /views/pages/test.pug
 /views/includes/footer.bk.pug
+
+/log/

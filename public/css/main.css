@@ -165,6 +165,8 @@ img{
 
 .navbar-dt-brand{
     margin-left: 0px !important;
+    background: url('/img/logo-orig-32.jpg') center no-repeat;
+    width: 160px;
 }
 
 .dt-nav{

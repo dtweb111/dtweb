@@ -1,5 +1,0 @@
-2017-11-03 22:i:s Failed to get connection from pool
-2017-11-03 22:i:s Failed to get connection from pool
-2017-11-03 23:42:01 Failed to execute sql statement {SELECT `video_id`, `video_name`, `image_url`,`video_url`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos` WHERE `video_name` LIKE ? ORDER BY ?? DESC LIMIT ?, ?}
-2017-11-03 23:43:46 Failed to execute sql statement {SELECT `video_id`, `video_name`, `image_url`,`video_url`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos` WHERE `video_name` LIKE ? ORDER BY ?? DESC LIMIT ?, ?}
-2017-11-03 23:46:21 Failed to execute sql statement {SELECT `video_id`, `video_name`, `image_url`,`video_url`, `categories`, `release_date`, `views`, `rate` FROM `search_all_videos` WHERE `video_name` LIKE ? ORDER BY ?? DESC LIMIT ?, ?}
