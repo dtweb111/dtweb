@@ -13,6 +13,8 @@ var badRequest = require('./routes/badRequest');
 var associate = require('./routes/associate');
 var io = require('./src/services/io');
 
+var api = require('./routes/api');
+
 var app = express();
 
 // view engine setup
@@ -31,6 +33,9 @@ app.use('/', home);
 app.use('/search', search);
 app.use('/play', play);
 app.use('/associate', associate);
+
+app.use('/api', api);
+
 app.use('/bad', badRequest);
 
 // catch 404 and redirect to `/bad`

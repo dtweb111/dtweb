@@ -7,7 +7,7 @@
     "dev": "echo 'run dev' && npm start",
     "test": "echo 'Error: no test specified' && exit 1",
     "serve": "nodemon --config nodemon.json --exec npm run dev",
-    "postinstall": "bower install && gulp build"
+    "postinstall": "npx bower install && gulp build"
   },
   "dependencies": {
     "async": "^2.5.0",
@@ -32,6 +32,7 @@
     "gulp-imagemin": "^3.4.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8"
+    "gulp-util": "^3.0.8",
+    "nodemon": "^1.17.5"
   }
 }
